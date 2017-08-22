@@ -1,0 +1,76 @@
+<slider-menu></slider-menu>
+
+<div ng-if="load" class="fadein" ng-class="{ blur: ShowMenu == true }" >
+
+    <!-- If Household -->
+    <div ng-if="(Voters && !Voter)" class="nearbyVotersContainer">
+          <div class="nearbyVotersTopRow">
+              <div class="vertical-align">
+                  <h2 class="blockMarginCenter font25 padLeft10"><i class="fa fa-database" aria-hidden="true"></i></h2>
+                  <input type="text" class="disabledInput placeHolderWhite" placeholder="HOUSEHOLD" readonly="readonly" />
+                  <h2 class="blockMarginCenter font30 padRight10"><i class="fa fa-close" aria-hidden="true" ng-click="closeSelection()"></i></h2>
+              </div>
+          </div>
+
+          <div class="nearbyVotersSelectionRow" ng-repeat="v in Voters track by $index" ng-click="voterSelected($index)">
+              <div class="horizontal-align vertical-align">
+                  <h8> {{ v.FIRSTNAME }} {{ v.LASTNAME }} </h8>
+              </div>
+          </div>
+
+    </div>
+
+
+    <!-- Voter Detail -->
+    <div ng-if="Voter" class="nearbyDetailContainer" ng-class="backAnim ? 'B' : ''">
+        <div class="nearbyDetailTopRow">
+            <div class="vertical-align">
+                <h2 class="blockMarginCenter font25 padLeft10">
+                    <div ng-if="Voters">
+                        <i class="fa fa-arrow-left" aria-hidden="true" ng-click="backSelection()"></i>
+                    </div>
+                    <div ng-if="!Voters">
+                        <i class="fa fa-database" aria-hidden="true"></i>
+                    </div>
+                </h2>
+                <input type="text" class="disabledInput placeHolderWhite" placeholder="{{ Voter.FIRSTNAME }}" readonly="readonly" />
+                <h2 class="blockMarginCenter font30 padRight10"><i class="fa fa-close" aria-hidden="true" ng-click="closeSelection()"></i></h2>
+            </div>
+        </div>
+
+        <div class="nearbyVoterDetail">
+            <voter-detail></voter-detail>
+        </div>
+    </div>
+
+
+    <!-- Actual Page -->
+    <div class="row nearbyTopRow">
+        <div class="vertical-align">
+          <h2 class="font30 padLeft10 blockMarginCenter"><i class="fa fa-database" aria-hidden="true" ng-click="toggleSlideMenu()"></i></h2>
+          <input type="text" class="disabledInput placeHolderWhite" placeholder="Voters Near You" readonly="readonly"/>
+          <h2 class="font36 padRight10 blockMarginCenter"><i class="fa fa-map-marker" aria-hidden="true"></i></h2>
+        </div>
+    </div>
+
+    <div ng-if="!loaded" class="row loadMapBlock" ng-click="initNearby()">
+        <div class="col-xs-4">
+            <div class="vertical-align horizontal-align">
+                <h1> <i class="fa fa-map-o fa-2x" aria-hidden="true"></i>  </h1>
+            </div>
+        </div>
+
+        <div class="col-xs-8">
+            <div class="vertical-align horizontal-align">
+                <h1> Load Map </h1>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="loaded" class="row nearbyMapContainer">
+        <div id="NearbyMap"></div>
+    </div>
+
+    <div class="poweredBy"><h5>Powered By Google</h5></div>
+
+</div>

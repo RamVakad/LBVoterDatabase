@@ -1,0 +1,54 @@
+<div class="voterDetails" ng-class="!SearchPage ? '' : 'row'">
+    <h4>Voter ID: {{ voter.VOTERID }}, {{ voter.GENDER == 'M' ? "Male" : "Female" }}</h4>
+    <h4>{{ voter.FIRSTNAME }} {{ voter.LASTNAME }}</h4>
+
+    <div class='container'>
+        <h4>Petition Status:</h4>
+        <div class="row">
+            <div class='col-xs-6'>
+                <div class="dropdown">
+                  <button class="btn btn-default btn-block dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{ PetStatus }}
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li role="presentation" ng-click="petPending()"><a role="menuitem" tabindex="-1">Pending</a></li>
+                    <li role="presentation" ng-click="petAcquired()"><a role="menuitem" tabindex="-1" >Acquired</a></li>
+                    <li role="presentation" ng-click="petRefused()"><a role="menuitem" tabindex="-1">Refused</a></li>
+                    <li role="presentation" ng-click="petOpposition()"><a role="menuitem" tabindex="-1">Opposition</a></li>
+                  </ul>
+                </div>
+            </div>
+
+            <div class='col-xs-6'>
+                <div class="form-group">
+                  <input class="form-control" type="date" ng-model="PetDate" ng-change="updatePetStatus()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Petition Status
+    <label class="switch"><input type="checkbox" ng-model="CheckBox" ng-change="petitionStatusChanged()"><i></i></label>
+
+    <div ng-if="(PetStatus == '0')">
+          <h4>Sign: Pending <i class="fa fa-exclamation-triangle pending" aria-hidden="true"></i></h4>
+    </div>
+    <div ng-if="(PetStatus == '1')">
+          <h4>Sign: Acquired <i class="fa fa-check-circle acquired" aria-hidden="true"></i></h4>
+    </div>
+    <div ng-if="(PetStatus == '2')">
+          <h4>Sign: Refused <i class="fa fa-thumbs-down refused" aria-hidden="true"></i></h4>
+    </div>
+     -->
+
+
+    <h4>{{ voter.ADDR_NUM }} {{ voter.ADDR_DIR }} {{ voter.ADDR_STR }} {{ voter.ADDR_TYPE }}</h4>
+    <h4>{{ voter.ADDR_CITY }}, {{ voter.ADDR_STATE }} {{ voter.ADDR_ZIP }}</h4>
+    <div ng-if="voter.PHONE">
+    <h4>Phone: <a href="tel:{{ voter.PHONE }}">+1 ({{ firstPh }}) - {{ secondPh }} - {{ lastPh }}</a></h4>
+    </div>
+</div>
+<div ng-hide="!SearchPage" class="row voterLocation">
+  <div id="map"></div>
+  <div class="poweredBy"><h5>Powered By Google</h5></div>
+</div>

@@ -1,0 +1,43 @@
+<div class="fadein">
+  <div class="spinner" ng-show="loading">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+  <div class="row homeTopHalf">
+    <div class="col-xs-4">
+      <div class="vertical-align horizontal-align">
+        <h1> <i class="fa fa-database fa-2x" aria-hidden="true"></i>  </h1>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="vertical-align">
+        <h1> LB Voter Database </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row homeBottomHalf">
+      <div class="col-xs-6">
+        <div class="row vertical-align horizontal-align">
+          <h2 class="passwordRequiredText">A password is required to decrypt the database.</h2>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="row passwordInputBlock">
+          <div class="vertical-align">
+            <input type="password" class="passwordInput placeHolderWhite" ng-model="PASSWORD" placeholder="Enter Password" />
+          </div>
+        </div>
+        <div class="row decryptBlock" ng-click="AuthUser()">
+          <div class="vertical-align horizontal-align">
+            <h2 class="decryptText"> <i class="fa fa-unlock-alt" aria-hidden="true"></i> Decrypt</h2>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+  <div class="copyrightFixed"><h5>® Lester & Associates 2017</h5></div>
+</div>

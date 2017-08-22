@@ -1,0 +1,36 @@
+<div ng-if="ShowMenu" class="slidingMenuContainer" ng-animate-children="true">
+      <div class="menuTopRow">
+          <div class="vertical-align horizontal-align">
+            <h6 class="font30 padLeft10"><i class="fa fa-database" aria-hidden="true" ng-click="toggleSlideMenu()"></i></h2>
+            <input type="text" class="disabledInput placeHolderWhite" placeholder="Search Options" readonly="readonly" />
+            <h6 class="font36 padRight10"><i class="fa fa-close" aria-hidden="true" ng-click="toggleSlideMenu()"></i></h2>
+          </div>
+      </div>
+
+      <!-- Search Page Selection -->
+      <div class="menuSelectionRow" ng-click="goToSearch()" ng-class="{ activeSelection: SearchPage != null }">
+        <div class="sliderSelection vertical-align">
+            <h6> <i class="fa fa-search fontawesomeIconPadRight" aria-hidden="true"></i> Search Voters By Name </h6>
+        </div>
+      </div>
+
+      <!-- Household Page Selection -->
+      <div class="menuSelectionRow" ng-click="goToHousehold()" ng-class="{ activeSelection: HouseholdPage != null }">
+        <div class="sliderSelection vertical-align">
+            <h6> <i class="fa fa-home fontawesomeIconPadRight" aria-hidden="true"></i> Search Households</h6>
+        </div>
+      </div>
+
+      <!-- Nearby Voter Selection -->
+      <div class="menuSelectionRow" ng-click="goToNearby()" ng-class="{ activeSelection: NearbyPage != null }">
+        <div class="sliderSelection vertical-align">
+            <h6> <i class="fa fa-map-pin fontawesomeIconPadRight" aria-hidden="true"></i> Look For Voters Nearby </h6>
+        </div>
+      </div>
+
+      <div class="menuSelectionRow" ng-click="loadMarkers()" ng-if="NearbyPage">
+        <div class="horizontal-align vertical-align">
+            <h6> <i class="fa fa-cog fontawesomeIconPadRight" aria-hidden="true"></i> Load More Voters </h6>
+        </div>
+      </div>
+</div>

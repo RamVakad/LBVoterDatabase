@@ -1,0 +1,35 @@
+<slider-menu></slider-menu>
+
+<div ng-if="load" class="fadein" ng-class="{ blur: ShowMenu == true }">
+
+      <div class="row searchRow">
+          <div class="vertical-align">
+            <h2 class="font30 padLeft10 blockMarginCenter"><i class="fa fa-database" aria-hidden="true" ng-click="toggleSlideMenu()"></i></h2>
+            <input type="text" class="searchInput placeHolderWhite" ng-model="$parent.SearchText" ng-change="searchInputChanged()" placeholder="Enter Name" ></input>
+            <h2 class="font30 padRight10 blockMarginCenter"><i class="fa fa-search" aria-hidden="true"></i></h2>
+          </div>
+      </div>
+
+      <div class="row sevenPercent"></div> <!--CSS Sucks Dick.-->
+
+
+      <div class="resultsContainer" ng-if="showResults" ng-animate-children="true">
+        <div ng-animate-swap="result" class="row resultRow" ng-repeat="result in Results track by $index" ng-click="voterSelected($index)">
+          <div class="horizontal-align vertical-align">
+              <h7> {{ result.FIRSTNAME }} {{ result.LASTNAME }} </h7>
+          </div>
+        </div>
+      </div>
+
+      <div class="row noResults" ng-if="showOops">
+        <div class="horizontal-align vertical-align">
+            <h3> Oops, looks like there's no such voter. </h3>
+        </div>
+      </div>
+
+
+      <div ng-if="showDetail" class="voterContainer">
+        <voter-detail></voter-detail>
+      </div>
+
+</div>

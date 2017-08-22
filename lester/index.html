@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="lester">
+      <head>
+            <meta charset="utf-8">
+            <!-- Mobile First Tags -->
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="mobile-web-app-capable" content="yes">
+
+
+            <!-- Fonts -->
+            <link href="//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+            <link href="//fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" />
+
+            <!-- CSS -->
+            <link rel="stylesheet" href="css/bootstrap.css" />
+            <link rel="stylesheet" href="css/Lester.css" />
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+      </head>
+
+      <!-- VIEW INJECTION -->
+      <body>
+          <div ng-view class="container-fluid"></div>
+          <div class="fullscreenx"></div>
+      </body>
+
+      <!-- SCRIPT IMPORTS -->
+      <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyC1h9cg0BbjKiiQ05fCsZr8SnQYyIzo60o" async defer></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+      <script src="js/StandaloneCryptography/AESEncryptDecrypt.js"></script>
+      <script src="js/StandaloneCryptography/Base64Encoding.js"></script>
+      <script src="js/data/EncryptedVoterData.js"></script>
+      <script src="js/data/GeocodeData.js"></script>
+      <script src="js/factories/DataFactory.js"></script>
+      <script src="js/factories/GeocodeFactory.js"></script>
+      <script src="js/factories/AuthFactory.js"></script>
+      <script src="js/factories/PetStatusFactory.js"></script>
+      <script src="js/factories/HouseholdProvider.js"></script>
+      <script src="js/controllers/HomeController.js"></script>
+      <script src="js/controllers/SearchController.js"></script>
+      <script src="js/controllers/NearbyController.js"></script>
+      <script src="js/controllers/HouseholdController.js"></script>
+      <script src="js/directives/VoterDetail.js"></script>
+      <script src="js/directives/SliderMenu.js"></script>
+      <script src="js/Utils/BlueDotGeolocate.js"></script>
+      <script src="js/Utils/Logging.js"></script>
+      <script src="js/Utils/Utils.js"></script>
+      <script src="app.js"></script>
+</html>

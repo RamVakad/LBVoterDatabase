@@ -1,0 +1,62 @@
+<slider-menu></slider-menu>
+
+<div ng-if="load" class="fadein" ng-class="{ blur: ShowMenu == true }">
+
+      <div class="row addressRow">
+          <div class="vertical-align">
+            <h2 class="font30 padLeft10 blockMarginCenter"><i class="fa fa-database" aria-hidden="true" ng-click="toggleSlideMenu()"></i></h2>
+            <input type="text" class="searchInput placeHolderWhite" ng-model="$parent.SearchText" ng-change="searchInputChanged()" placeholder="Enter Address" ></input>
+            <h2 class="font30 padRight10 blockMarginCenter"><i class="fa fa-home" aria-hidden="true"></i></h2>
+          </div>
+      </div>
+
+      <div class="row sevenPercent"></div> <!--CSS Sucks Dick.-->
+
+
+      <div class="resultsContainer" ng-if="showResults" ng-animate-children="true">
+        <div ng-animate-swap="result" class="row resultRow" ng-repeat="result in Results track by $index" ng-click="householdSelected($index)">
+          <div class="horizontal-align vertical-align">
+              <h7>{{ result.VOTERS[0].ADDR_NUM }} {{ result.VOTERS[0].ADDR_DIR }} {{ result.VOTERS[0].ADDR_STR }} {{ result.VOTERS[0].ADDR_TYPE }} {{ result.VOTERS[0].ADDR_OTHER }}</h7>
+          </div>
+        </div>
+      </div>
+
+      <div class="row noResults" ng-if="showOops">
+        <div class="horizontal-align vertical-align">
+            <h3> Oops, looks like there's no such address. </h3>
+        </div>
+      </div>
+
+
+      <div ng-if="showDetail && !Voter" class="nearbyVotersContainer">
+            <div class="nearbyVotersTopRow householdGreen">
+                <div class="vertical-align">
+                    <h2 class="blockMarginCenter font25 padLeft10"><i class="fa fa-database" aria-hidden="true"></i></h2>
+                    <input type="text" class="disabledInput placeHolderWhite" placeholder="HOUSEHOLD" readonly="readonly" />
+                    <h2 class="blockMarginCenter font30 padRight10"><i class="fa fa-close" aria-hidden="true" ng-click="closeSelection()"></i></h2>
+                </div>
+            </div>
+
+            <div class="nearbyVotersSelectionRow" ng-repeat="v in Selected.VOTERS track by $index" ng-click="voterSelected($index)">
+                <div class="horizontal-align vertical-align">
+                    <h8> {{ v.FIRSTNAME }} {{ v.LASTNAME }} </h8>
+                </div>
+            </div>
+      </div>
+
+      <!-- Voter Detail -->
+      <div ng-if="Voter" class="nearbyDetailContainer B">
+          <div class="nearbyDetailTopRow householdGreen">
+              <div class="vertical-align">
+                  <h2 class="blockMarginCenter font25 padLeft10"><i class="fa fa-arrow-left" aria-hidden="true" ng-click="backSelection()"></i></h2>
+                  <input type="text" class="disabledInput placeHolderWhite" placeholder="{{ Voter.FIRSTNAME }}" readonly="readonly" />
+                  <h2 class="blockMarginCenter font30 padRight10"><i class="fa fa-close" aria-hidden="true" ng-click="closeSelection()"></i></h2>
+              </div>
+          </div>
+
+          <div class="nearbyVoterDetail">
+              <voter-detail></voter-detail>
+          </div>
+      </div>
+
+</div>
